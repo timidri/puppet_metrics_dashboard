@@ -14,7 +14,7 @@ class puppet_metrics_dashboard::mbeans_metrics(
     $host = $master['host']
     $port = $master['port']
     $metrics.each | $metric | {
-      telegraph::input { "mbeans_${metric['name']}_${host}":
+      telegraf::input { "mbeans_${metric['name']}_${host}":
         plugin_type => 'httpjson',
         options     => [{
           'name'                 => "mbeans_${metric['name']}",
